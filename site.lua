@@ -1,14 +1,9 @@
-local Prox = script.Parent
-local Seat = Prox.Parent
-
-Seat:GetPropertyChangedSignal("Occupant"):Connect(function()
-	if Seat.Occupant then
-		Prox.Enabled = false
-	else
-		Prox.Enabled = true
-	end
-end)
-
-Prox.Triggered:Connect(function(Player)
-	Seat:Sit(Player.Character.Humanoid)
-end)
+function DeductCurrency(player, amount)
+    -- ตรวจสอบว่าผู้เล่นมีตังเพียงพอหรือไม่
+    if player.leaderstats.Money.Value >= amount then
+        player.leaderstats.Money.Value = player.leaderstats.Money.Value - amount
+        return true -- การลดตังสำเร็จ
+    else
+        return false -- ไม่มีตังเพียงพอ
+    end
+end
