@@ -1,5 +1,5 @@
 local TweenService = game:GetService("TweenService")
-local part = script.Parent  -- เปลี่ยนเป็นส่วนที่คุณต้องการเคลื่อนที่
+local part = script.Parent  -- ส่วนทีต้องการเคลื่อนที่
 
 -- ตั้งค่าเริ่มต้นและสิ้นสุดของการเคลื่อนที่
 local startPos = part.Position
