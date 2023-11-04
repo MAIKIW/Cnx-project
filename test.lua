@@ -1,23 +1,3 @@
--- สร้าง ProximityPrompt
-local prompt = Instance.new("ProximityPrompt")
-prompt.ActionText = "Press E to Sit"  -- ข้อความที่จะแสดงบนหน้าจอเมื่อใกล้ ProximityPrompt
-prompt.Parent = yourPartHere -- เป็นส่วนหนึ่งของตัวละครหรือวัตถุที่คุณต้องการให้ ProximityPrompt แสดง
-
-
--- ฟังก์ชันที่จะทำงานเมื่อผู้เล่นกดปุ่ม E
-local function onPromptTriggered()
-    local player = game.Players:GetPlayerFromCharacter(prompt.Parent)
-    if player then
-        local character = player.Character
-        if character then
-            -- สร้าง Seat เพื่อนั่ง
-            local seat = Instance.new("Seat")
-            seat.Parent = workspace
-            seat.CFrame = CFrame.new(yourSeatPositionHere) -- ตำแหน่งที่คุณต้องการให้นั่ง
-            character.Humanoid.Sit = true -- เปลี่ยนสถานะให้นั่ง
-        end
-    end
-end
-
--- เชื่อม ProximityPrompt กับฟังก์ชันเมื่อกดปุ่ม E
-prompt.Triggered:Connect(onPromptTriggered)
+script.Parent.Triggered:Connect(function()
+	script.Parent.Parent:Destroy() 
+end)
